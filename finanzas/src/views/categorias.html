@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Financial Management - Categories</title>
+    <link rel="stylesheet" href="../css/categorias.css" />
+    <script type="module" src="../js/guardian.js"></script>
+</head>
+
+<body>
+    <div class="fondo"></div>
+    <header>
+        <nav class="navbar">
+            <img src="../img/categorias.ico" alt="category icon">
+            <h1>Categories</h1>
+            <div class="nav-items">
+                <button class="logout-btn" id="logout-btn">Log out</button>
+                <a href="dashboard.html" class="btn-ds">Back</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container">
+        <!-- Add Category -->
+        <section class="form-section">
+            <h2>Add Category</h2>
+            <form id="form-categoria">
+                <div class="form-group">
+                    <label for="nombre">Category Name:</label>
+                    <input type="text" id="nombre-categoria" placeholder="e.g. Home" required />
+                </div>
+                <button type="submit">Add</button>
+            </form>
+        </section>
+
+        <!-- Category List -->
+        <section class="tbody-categorias">
+            <h2>Created Categories</h2>
+            <ul id="lista-categorias">
+                <!-- Categories will be listed here -->
+            </ul>
+        </section>
+    </main>
+
+    <script type="module" src="../js/categorias.js"></script>
+</body>
+
+</html>

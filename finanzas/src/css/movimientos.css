@@ -1,0 +1,452 @@
+:root {
+  --img-background: url('../img/fondo.jpg');
+
+  --color-text: #ccc;
+  --color-navbar-bg: rgba(63, 63, 63, 0.85);
+  --color-navbar-text: #D1FAE5;
+
+  --color-logo: #d7cefe;
+
+  --btn-logout-bg: #e74c3c;
+  --btn-logout-hover: #f73434;
+  --btn-logout-text: white;
+
+  --btn-db-bg: #28a745;
+  --btn-db-bg-hover: #62e693;
+
+  --btn-danger-bg: rgba(175, 4, 4, 0.973);
+  --btn-danger-hover: red;
+
+  --btn-save-bg: #28a745;
+  --btn-save-hover: #218838;
+  --btn-clear-bg: #dc3545;
+  --btn-clear-hover: #c82333;
+
+  --card-bg: rgba(63, 63, 63, 0.75);
+  --card-shadow: rgba(0, 0, 0, 0.3);
+  --form-label-color: #D1FAE5;
+  --input-border: #ccc;
+
+  --table-border: #ddd;
+  --row-compra: #ffecec;
+  --row-venta: #eaffea;
+  --btn-edit-bg: #ffc107;
+  --btn-edit-text: black;
+  --btn-delete-bg: #dc3545;
+  --btn-delete-text: white;
+}
+
+/* ========== RESET ========== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ========== Background Image Layer ========== */
+.fondo {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+
+  background-image: var(--img-background);
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  /* PARA QUE EL FONDO QUEDE FIJO */
+  z-index: -1;
+}
+
+/* ========== Body Layout ========== */
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  color: var(--color-text);
+  font-family: Arial, sans-serif;
+  animation: cambiocolor 10s infinite;
+  transition: 2s;
+  padding-top: 70px;
+  /* espacio para navbar fija */
+  background: transparent;
+}
+
+/* ========== Navbar ========== */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 70px;
+  background-color: var(--color-navbar-bg);
+  color: var(--color-navbar-text);
+
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  gap: 15px;
+  z-index: 1000;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+  justify-content: space-between;
+}
+
+/* Logo y título agrupados */
+.navbar-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Logo */
+.navbar img {
+  filter: invert(1);
+  height: 50px;
+  width: 50px;
+  object-fit: contain;
+}
+
+/* Título */
+.navbar h1 {
+  font-size: 24px;
+  white-space: nowrap;
+  color: var(--color-navbar-text);
+}
+
+/* Botones navbar */
+.nav-items {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+/* Botones generales */
+.logout-btn,
+.btn-ds {
+  padding: 8px 14px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  text-decoration: none;
+  border: none;
+  transition: background-color 0.2s ease;
+  white-space: nowrap;
+  min-width: 100px;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.logout-btn {
+  background-color: var(--btn-logout-bg);
+  color: var(--btn-logout-text);
+}
+
+.logout-btn:hover {
+  background-color: var(--btn-logout-hover);
+}
+
+.btn-ds {
+  background-color: var(--btn-db-bg);
+  color: var(--btn-logout-text);
+}
+
+.btn-ds:hover {
+  background-color: var(--btn-db-bg-hover);
+}
+
+/* ========== Main Container ========== */
+.main-container {
+  flex: 1;
+  max-width: 1000px;
+  width: 95%;
+  margin: 2rem auto;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* ========== Sections (Form + Table) ========== */
+.form-section,
+.tabla-section {
+  background: var(--card-bg);
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 3px 12px var(--card-shadow);
+  overflow-x: auto;
+  /* para tablas con scroll horizontal */
+}
+
+/* Títulos */
+h2 {
+  margin-bottom: 1rem;
+  color: var(--form-label-color);
+  text-align: center;
+}
+
+/* ========== Form Styles ========== */
+.form-group {
+  margin-bottom: 1rem;
+}
+
+label {
+  display: block;
+  font-size: 0.9rem;
+  margin-bottom: 0.3rem;
+  color: var(--form-label-color);
+}
+
+input,
+select {
+  width: 100%;
+  padding: 0.6rem;
+  border: 1px solid var(--input-border);
+  border-radius: 6px;
+  font-size: 1rem;
+  background: #fff;
+  color: #000;
+}
+
+.btn-guardar {
+  margin-top: 1rem;
+  width: 100%;
+  background-color: var(--btn-save-bg);
+  color: white;
+  padding: 0.7rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.btn-guardar:hover {
+  background-color: var(--btn-save-hover);
+}
+
+/* ========== Filters ========== */
+.filtros {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
+
+.filtros select,
+.filtros input {
+  padding: 0.5rem;
+  border-radius: 6px;
+  border: 1px solid var(--input-border);
+}
+
+#btn-limpiar-filtros {
+  background-color: var(--btn-clear-bg);
+  color: white;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+#btn-limpiar-filtros:hover {
+  background-color: var(--btn-clear-hover);
+}
+
+/* ========== Table ========== */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 600px;
+  /* para evitar que la tabla se achique demasiado */
+}
+
+th,
+td {
+  padding: 0.8rem 1rem;
+  text-align: left;
+  border-bottom: 1px solid var(--table-border);
+  vertical-align: middle;
+  color: var(--color-text);
+}
+
+tr.compra {
+  background-color: var(--row-compra);
+}
+
+tr.venta {
+  background-color: var(--row-venta);
+}
+
+/* Botones dentro de tabla */
+td button {
+  margin-right: 0.5rem;
+  padding: 0.3rem 0.6rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+td .btn-editar {
+  background-color: var(--btn-edit-bg);
+  color: var(--btn-edit-text);
+}
+
+td .btn-eliminar {
+  background-color: var(--btn-delete-bg);
+  color: var(--btn-delete-text);
+}
+
+/* ========== Sorting Buttons ========== */
+.orden-alfabetico {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.orden-alfabetico button {
+  background-color: #2e86de;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+  white-space: nowrap;
+}
+
+.orden-alfabetico button:hover {
+  background-color: #1b4f72;
+  transform: scale(1.05);
+}
+
+.orden-alfabetico button.active {
+  background-color: #117a65;
+}
+
+/* ========== MEDIA QUERIES (Responsive) ========== */
+
+/* Tablets and small desktops */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 0 15px;
+  }
+
+  .navbar img {
+    height: 45px;
+    width: 45px;
+  }
+
+  .navbar h1 {
+    font-size: 20px;
+  }
+
+  .nav-items {
+    gap: 6px;
+  }
+
+  .btn-ds,
+  .logout-btn {
+    min-width: 80px;
+    padding: 6px 10px;
+    font-size: 0.9rem;
+  }
+
+  .main-container {
+    width: 95%;
+    margin: 1.5rem auto;
+    gap: 1.5rem;
+  }
+
+  h2 {
+    font-size: 1.3rem;
+  }
+
+  table {
+    min-width: 500px;
+  }
+
+  th,
+  td {
+    font-size: 0.9rem;
+    padding: 0.6rem 0.8rem;
+  }
+}
+
+/* Smartphones and small devices */
+@media (max-width: 480px) {
+  .navbar {
+    flex-direction: column;
+    height: auto;
+    padding: 15px 10px;
+    gap: 8px;
+  }
+
+  /* Agrupar logo y título en línea */
+  .navbar-left {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  .navbar img {
+    height: 40px;
+    width: 40px;
+  }
+
+  .navbar h1 {
+    font-size: 18px;
+    white-space: normal;
+  }
+
+  /* Botones debajo */
+  .nav-items {
+    width: 100%;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 6px;
+  }
+
+  .logout-btn,
+  .btn-ds {
+    flex: 1 1 45%;
+    min-width: 140px;
+    font-size: 0.85rem;
+    padding: 7px 0;
+  }
+
+  /* Main container y secciones */
+  .main-container {
+    width: 95%;
+    margin: 10rem auto;
+  }
+
+  .form-section,
+  .tabla-section {
+    padding: 1rem;
+  }
+
+  /* Tabla scroll horizontal */
+  table {
+    min-width: unset;
+    width: 100%;
+  }
+
+  .tabla-section {
+    overflow-x: auto;
+  }
+
+  th,
+  td {
+    font-size: 0.85rem;
+    padding: 0.5rem 0.6rem;
+  }
+}

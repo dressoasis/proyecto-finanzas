@@ -1,0 +1,278 @@
+:root {
+  /* Background image for the entire view */
+  --img-background: url('../img/fondo.jpg');
+
+  /* Text color and main UI theme */
+  --color-text: #ccc;
+  --color-navbar-bg: rgba(63, 63, 63, 0.699);
+  --color-navbar-text: #D1FAE5;
+
+  /* Logo color */
+  --color-logo: #d7cefe;
+
+  /* Logout button colors */
+  --btn-logout-bg: #e74c3c;
+  --btn-logout-hover: #f73434;
+  --btn-logout-text: white;
+
+  /* Dashboard button */
+  --btn-db-bg: #28a745;
+  --btn-db-bg-hover: #62e693;
+
+  /* Card background */
+  --card-bg: rgba(63, 63, 63, 0.699);
+  --card-shadow: rgba(0, 0, 0, 0.1);
+
+  /* Form and input styles */
+  --form-label-color: #D1FAE5;
+  --input-border: #ccc;
+}
+
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Background Image Layer */
+.fondo {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-image: var(--img-background);
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  /* Fijo para que no se mueva */
+  z-index: -1;
+}
+
+/* Body Styling */
+body {
+  display: grid;
+  place-items: center;
+  min-height: 50vh;
+  color: var(--color-text);
+  font-family: Arial, sans-serif;
+  animation: cambiocolor 10s infinite;
+  transition: 2s;
+  padding-top: 70px;
+  /* espacio para navbar */
+}
+
+/* Navbar Styles */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+
+  display: flex;
+  align-items: center;
+  background-color: var(--color-navbar-bg);
+  color: var(--color-navbar-text);
+  padding: 10px 20px;
+  height: 70px;
+  gap: 10px;
+}
+
+/* Logo a la izquierda */
+.navbar img {
+  filter: invert(1);
+  height: 60px;
+  width: 60px;
+  object-fit: contain;
+}
+
+/* Título al lado del logo sin posición absoluta */
+.navbar h1 {
+  position: static !important;
+  transform: none !important;
+  font-size: 24px;
+  color: var(--color-navbar-text);
+  margin: 0;
+  white-space: nowrap;
+  /* no se parte en varias líneas */
+}
+
+/* Empujar botones a la derecha */
+.nav-items {
+  margin-left: auto;
+  display: flex;
+  gap: 10px;
+}
+
+/* Botones */
+.logout-btn,
+.btn-ds {
+  padding: 8px 14px;
+  border: none;
+  border-radius: 4px;
+  font-weight: bold;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background-color 0.2s ease;
+  white-space: nowrap;
+  min-width: 100px;
+  text-align: center;
+}
+
+.logout-btn {
+  background-color: var(--btn-logout-bg);
+  color: var(--btn-logout-text);
+}
+
+.logout-btn:hover {
+  background-color: var(--btn-logout-hover);
+}
+
+.btn-ds {
+  background-color: var(--btn-db-bg);
+  color: var(--btn-logout-text);
+}
+
+.btn-ds:hover {
+  background-color: var(--btn-db-bg-hover);
+}
+
+/* Responsive Grid for cards */
+.main-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 4rem;
+  padding: 2rem;
+  max-width: 1100px;
+  width: 100%;
+}
+
+/* Card styling */
+.card {
+  background: var(--card-bg);
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 3px 8px var(--card-shadow);
+  width: 100%;
+}
+
+.card h2 {
+  margin-bottom: 1rem;
+  color: var(--form-label-color);
+  text-align: center;
+}
+
+.card p,
+.card label,
+.card select {
+  font-size: 1.1rem;
+  margin: 0.5rem 0;
+  color: var(--color-text);
+  display: block;
+  text-align: center;
+}
+
+.card span {
+  font-size: 2rem;
+  margin: 0.5rem 0;
+  color: var(--btn-db-bg-hover);
+  display: block;
+  text-align: center;
+}
+
+.card select {
+  width: 100%;
+  padding: 0.5rem;
+  border-radius: 6px;
+  background-color: #fff;
+  color: #000;
+  border: 1px solid var(--input-border);
+}
+
+/* Media query para pantallas pequeñas */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 0 15px;
+  }
+
+  .navbar img {
+    height: 45px;
+    width: 45px;
+  }
+
+  .navbar h1 {
+    font-size: 20px;
+  }
+
+  .nav-items {
+    gap: 6px;
+  }
+
+  .btn-ds,
+  .logout-btn {
+    min-width: 80px;
+    padding: 6px 10px;
+    font-size: 0.9rem;
+  }
+
+  .card span {
+    font-size: 1.5rem;
+  }
+}
+
+
+@media (max-width: 480px) {
+  .navbar {
+    flex-direction: column;
+    height: auto;
+    padding: 15px 10px;
+    gap: 8px;
+  }
+
+  /* Agrupar logo y título en línea */
+  .navbar-left {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  .navbar img {
+    height: 40px;
+    width: 40px;
+  }
+
+  .navbar h1 {
+    font-size: 18px;
+    white-space: normal;
+  }
+
+  /* Botones debajo */
+  .nav-items {
+    width: 100%;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 6px;
+  }
+
+  .logout-btn,
+  .btn-ds {
+    flex: 1 1 45%;
+    min-width: 140px;
+    font-size: 0.85rem;
+    padding: 7px 0;
+  }
+
+  /* Main container y secciones */
+  .main-container {
+    width: 95%;
+    margin: 10rem auto;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+}

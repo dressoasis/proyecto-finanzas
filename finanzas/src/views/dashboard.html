@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="../css/dashboard.css" />
+    <script type="module" src="../js/guardian.js"></script>
+</head>
+
+<body>
+    <div class="background"></div>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <h1 class="logo">My Dashboard</h1>
+        <button class="logout-btn" id="logout-btn">Log Out</button>
+    </nav>
+
+    <!-- MAIN CONTENT -->
+    <main class="dashboard">
+        <section class="card1" onclick="location.href='movimientos.html'">
+            <h2>Transactions</h2>
+            <p>Purchase and Sale</p>
+        </section>
+
+        <section class="card2" onclick="location.href='categorias.html'">
+            <h2>Categories</h2>
+            <p>Product Categories</p>
+        </section>
+
+        <section class="card3" onclick="location.href='reportes.html'">
+            <h2>Reports</h2>
+            <p>Transaction Analysis</p>
+        </section>
+    </main>
+
+    <script type="module" src="../js/dashboard.js"></script>
+</body>
+
+</html>

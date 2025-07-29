@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Estadísticas - Finanzas Inteligentes</title>
+  <link rel="stylesheet" href="../css/reportes.css" />
+  <script type="module" src="../js/guardian.js"></script>
+</head>
+
+<body>
+  <div class="fondo"></div>
+
+  <header>
+    <nav class="navbar">
+      <img src="../img/finanzas.ico" alt="logo" />
+      <h1>Reportes</h1>
+      <div class="nav-items">
+        <button class="logout-btn" id="logout-btn">Cerrar sesión</button>
+        <a href="dashboard.html" class="btn-ds">Volver</a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="main-container">
+    <section class="card">
+      <h2>Categoría con más ventas:</h2>
+      <span id="categoria-mayor-venta">-</span>
+    </section>
+
+    <section class="card">
+      <h2>Categoría con más compras:</h2>
+      <span id="categoria-mayor-compra">-</span>
+    </section>
+
+    <section class="card">
+      <h2>Productos Destacados</h2>
+      <p><strong>Producto más vendido:</strong> <span id="producto-mas-vendido">-</span></p>
+      <p><strong>Producto más comprado:</strong> <span id="producto-mas-comprado">-</span></p>
+    </section>
+
+    <section class="card">
+      <h2>Meses Destacados</h2>
+      <p><strong>Mes con más ventas:</strong> <span id="mes-mayor-venta">-</span></p>
+      <p><strong>Mes con más compras:</strong> <span id="mes-mayor-compra">-</span></p>
+    </section>
+
+    <section class="card">
+      <h2>Totales por Categoría</h2>
+      <div id="totales-categoria">
+        <label for="categoria">Categoría</label>
+        <select id="categoria" name="categoria" required>
+          <option value="" disabled selected>-- Selecciona --</option>
+        </select>
+        <p><strong>Ganancia Neta:</strong> <span id="ganancia-neta">-</span></p>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Totales por Mes</h2>
+      <div id="totales-mes">
+      </div>
+    </section>
+  </main>
+
+  <script type="module" src="../js/reportes.js"></script>
+</body>
+
+</html>

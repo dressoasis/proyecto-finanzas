@@ -1,0 +1,290 @@
+:root {
+  /* Main Colors */
+  --img-background: url('../img/fondo.jpg');
+  --color-text: #ccc;
+  --color-navbar-bg: rgba(63, 63, 63, 0.699);
+  --color-navbar-text: #D1FAE5;
+
+  /* Logo and links */
+  --color-logo: #d7cefe;
+
+  /* Logout Button */
+  --btn-logout-bg: #e74c3c;
+  --btn-logout-hover: #f73434;
+  --btn-logout-text: white;
+
+  --btn-db-bg: #28a745;
+  --btn-db-bg-hover: #62e693;
+
+  /* Danger & edit buttons */
+  --btn-edit-bg: #ffc107;
+  --btn-edit-hover: #d2ff07;
+  --btn-edit-text: black;
+  --btn-delete-bg: #a81c2a;
+  --btn-delete-text: white;
+  --btn-delete-hover: red;
+
+  /* Card & form colors */
+  --card-bg: rgba(63, 63, 63, 0.699);
+  --card-shadow: rgba(0, 0, 0, 0.1);
+  --form-label-color: #D1FAE5;
+  --input-border: #ccc;
+
+  /* Table row background (optional) */
+  --table-border: #ddd;
+}
+
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Background image */
+.fondo {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-image: var(--img-background);
+  background-size: cover;
+  background-position: center;
+  z-index: -1;
+}
+
+/* Centered layout using Grid */
+body {
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
+  color: var(--color-text);
+  font-family: Arial, sans-serif;
+  animation: colorchange 10s infinite;
+  transition: 2s;
+  padding-top: 70px;
+}
+
+/* Navbar */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--color-navbar-bg);
+  color: var(--color-navbar-text);
+  padding: 10px 20px;
+  height: 70px;
+}
+
+.navbar img {
+  filter: invert(1);
+  height: 60px;
+  width: 60px;
+}
+
+.navbar h1 {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 24px;
+  color: var(--color-navbar-text);
+  margin: 0;
+}
+
+.nav-items {
+  display: flex;
+  gap: 10px;
+}
+
+/* Logout button */
+.logout-btn {
+  background-color: var(--btn-logout-bg);
+  border: none;
+  color: var(--btn-logout-text);
+  padding: 8px 14px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  text-decoration: none;
+  transition: background-color 0.2s ease;
+}
+
+.logout-btn:hover {
+  background-color: var(--btn-logout-hover);
+}
+
+/* Back button */
+.btn-ds {
+  background-color: var(--btn-db-bg);
+  border: none;
+  color: var(--btn-logout-text);
+  padding: 8px 14px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  text-decoration: none;
+  transition: background-color 0.2s ease;
+}
+
+.btn-ds:hover {
+  background-color: var(--btn-db-bg-hover);
+}
+
+/* Main container */
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  max-width: 800px;
+  width: 40rem;
+}
+
+/* Section styles */
+.form-section,
+.tbody-categorias {
+  background-color: var(--card-bg);
+  padding: 5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px var(--card-shadow);
+  justify-items: center;
+}
+
+h2 {
+  margin-bottom: 20px;
+  color: var(--color-text);
+  text-align: center;
+}
+
+/* Form layout */
+.form-group {
+  margin-bottom: 1rem;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.4rem;
+  font-size: 0.9rem;
+  color: var(--form-label-color);
+}
+
+input {
+  flex-grow: 1;
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid var(--input-border);
+  border-radius: 6px;
+}
+
+.form-section button {
+  margin-top: 1rem;
+  width: 100%;
+  background-color: var(--btn-db-bg);
+  color: white;
+  padding: 0.7rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.form-section button:hover {
+  background-color: var(--btn-db-bg-hover);
+}
+
+/* Category list */
+.tbody-categorias ul {
+  list-style: none;
+  padding: 0;
+}
+
+#lista-categorias li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--card-bg);
+  padding: 10px 60px;
+  margin-bottom: 8px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px var(--card-shadow);
+}
+
+#lista-categorias li span {
+  flex: 1;
+  font-weight: 500;
+}
+
+/* Buttons in list */
+.btn-edit {
+  background-color: var(--btn-edit-bg);
+  border: none;
+  padding: 0.4rem 0.8rem;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-right: 0.5rem;
+  color: var(--btn-edit-text);
+}
+
+.btn-edit:hover {
+  background-color: var(--btn-edit-hover);
+}
+
+.btn-eliminar {
+  background-color: var(--btn-delete-bg);
+  border: none;
+  padding: 0.4rem 0.8rem;
+  border-radius: 4px;
+  cursor: pointer;
+  color: var(--btn-delete-text);
+}
+
+.btn-eliminar:hover {
+  background-color: var(--btn-delete-hover);
+}
+
+/* ---------------- RESPONSIVE ---------------- */
+@media (max-width: 600px) {
+  .container {
+    width: 90%;
+    padding: 1rem;
+    margin-top: 100px;
+  }
+
+  .form-section,
+  .tbody-categorias {
+    padding: 2rem;
+  }
+
+  .navbar {
+    flex-direction: column;
+    text-align: center;
+    height: auto;
+    gap: 0.5rem;
+  }
+
+  .navbar h1 {
+    position: static;
+    transform: none;
+    font-size: 20px;
+  }
+
+  .navbar img {
+    height: 30px;
+    width: 30px;
+  }
+
+  .nav-items {
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  #lista-categorias li {
+    flex-direction: column;
+    gap: 8px;
+    padding: 1rem;
+  }
+}

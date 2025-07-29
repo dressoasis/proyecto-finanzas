@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Login</title>
+  <link rel="stylesheet" href="../css/login.css">
+</head>
+
+<body>
+  <!-- Container for the login form -->
+  <div class="login-container">
+    <!-- User icon -->
+    <img src="../img/user-icon.ico" alt="login logo">
+
+    <!-- Login title -->
+    <h2>Login</h2>
+
+    <!-- Login form -->
+    <form id="form-login">
+      <!-- Username input -->
+      <input type="text" placeholder="Username" id="username" name="username">
+      <!-- Password input -->
+      <input type="password" placeholder="Password" id="password" name="password">
+      <!-- Submit button -->
+      <button type="submit">Login</button>
+    </form>
+
+    <!-- Area to display login messages -->
+    <p id="resultado"></p>
+  </div>
+
+  <!-- JS module for login logic -->
+  <script type="module" src="../js/login.js"></script>
+</body>
+
+</html>

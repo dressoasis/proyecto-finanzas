@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Financial Management - Transactions</title>
+    <link rel="stylesheet" href="../css/movimientos.css" />
+    <script type="module" src="../js/guardian.js"></script>
+</head>
+
+<body>
+    <div class="fondo"></div>
+
+    <header>
+        <!-- Navigation bar -->
+        <nav class="navbar">
+            <img src="../img/finanzas.ico" alt="logo">
+            <h1>Transactions</h1>
+            <div class="nav-items">
+                <button class="logout-btn" id="logout-btn">Logout</button>
+                <a href="dashboard.html" class="btn-ds">Back</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- MAIN CONTAINER -->
+    <main class="main-container">
+        <!-- FORM SECTION -->
+        <section class="form-section">
+            <h2>Add Transaction</h2>
+            <form id="form-movimiento">
+                <div class="form-group">
+                    <label for="tipo">Type</label>
+                    <select id="tipo" name="tipo" required>
+                        <option value="">-- Select --</option>
+                        <option value="compra">Purchase</option>
+                        <option value="venta">Sale</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="descripcion">Description</label>
+                    <input type="text" id="descripcion" name="descripcion" required />
+                </div>
+
+                <div class="form-group">
+                    <label for="importe">Amount ($)</label>
+                    <input type="number" id="importe" name="importe" min="1" required />
+                </div>
+
+                <div class="form-group">
+                    <label for="fecha">Date</label>
+                    <input type="date" id="fecha" name="fecha" required />
+                </div>
+
+                <div class="form-group">
+                    <label for="categoria">Category</label>
+                    <select id="categoria" name="categoria" required>
+                        <option value="" disabled>-- Select --</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="btn-guardar">Save Transaction</button>
+            </form>
+        </section>
+
+        <!-- TABLE SECTION -->
+        <section class="tabla-section">
+            <h2>Transaction List</h2>
+
+            <!-- Filters -->
+            <div class="filtros">
+                <select id="filtro-tipo">
+                    <option value="">Type</option>
+                    <option value="compra">Purchase</option>
+                    <option value="venta">Sale</option>
+                </select>
+
+                <select id="filtro-categoria">
+                    <option value="">Category</option>
+                </select>
+
+                <input type="date" id="filtro-fecha-inicio" />
+                <input type="date" id="filtro-fecha-fin" />
+
+                <div class="orden-alfabetico">
+                    <button type="button" id="orden-az">A-Z</button>
+                    <button type="button" id="orden-za">Z-A</button>
+                </div>
+
+                <button id="btn-limpiar-filtros">Clear</button>
+            </div>
+
+            <table id="tabla-movimientos">
+                <thead>
+                    <tr>
+                        <th>Type</th>
+                        <th>Description</th>
+                        <th>Amount</th>
+                        <th>Date</th>
+                        <th>Category</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="tbody-movimientos">
+                    <!-- Rows will be inserted dynamically -->
+                </tbody>
+            </table>
+        </section>
+    </main>
+
+    <script type="module" src="../js/movimientos.js"></script>
+</body>
+
+</html>

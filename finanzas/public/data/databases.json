@@ -1,0 +1,50 @@
+{
+  "users": [
+    {
+      "id": "001",
+      "username": "dress",
+      "password": "123456"
+    },
+    {
+      "id": "002",
+      "username": "camilo",
+      "password": "123456"
+    }
+  ],
+  "categories": [
+    {
+      "id": "930e",
+      "nombre": "carros"
+    },
+    {
+      "id": "dfd3",
+      "nombre": "herramientas"
+    }
+  ],
+  "movimientos": [
+    {
+      "tipo": "compra",
+      "descripcion": "cama",
+      "importe": "5555",
+      "fecha": "2025-07-16",
+      "categoryId": "930e",
+      "id": "4610"
+    },
+    {
+      "id": "f271",
+      "tipo": "venta",
+      "descripcion": "cualquier monda",
+      "importe": "4444",
+      "fecha": "2025-07-10",
+      "categoryId": "dfd3"
+    },
+    {
+      "id": "4563",
+      "tipo": "venta",
+      "descripcion": "cualquier mondax2",
+      "importe": "4444",
+      "fecha": "2025-07-10",
+      "categoryId": "dfd3"
+    }
+  ]
+}
